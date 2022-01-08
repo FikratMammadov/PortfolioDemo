@@ -1,0 +1,27 @@
+﻿@model Entity.Concrete.Category
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Update Category</h2>
+@using (Html.BeginForm("Update", "AdminCategories", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.Label("Kategori Id")
+        @Html.TextBoxFor(c=>c.Id, new { @class = "form-control" })
+
+        @Html.Label("Kategori adi")
+        @Html.TextBoxFor(c => c.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.Name)
+        <br />
+        @Html.Label("Aciklama")
+        @Html.TextAreaFor(c => c.Description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.Description)
+        <br />
+        <button class="btn btn-primary">Guncelle</button>
+    </div>
+}
+
+
+

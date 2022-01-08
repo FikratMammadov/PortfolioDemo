@@ -1,0 +1,22 @@
+﻿@model Entity.Concrete.Category
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Add Category</h2>
+
+@using (Html.BeginForm("Add", "AdminCategories", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.Label("Kategori adi")
+        @Html.TextBoxFor(c => c.Name,new {@class = "form-control" })
+        @Html.ValidationMessageFor(c => c.Name)
+        <br />
+        @Html.Label("Aciklama")
+        @Html.TextAreaFor(c => c.Description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.Description)
+        <br />
+        <button class="btn btn-primary">Ekle</button>
+    </div>
+}

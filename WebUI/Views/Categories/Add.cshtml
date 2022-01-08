@@ -1,0 +1,36 @@
+﻿@model Entity.Concrete.Category
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <title>Add Category</title>
+</head>
+<body>
+
+    @using (Html.BeginForm("Add", "Categories", FormMethod.Post))
+    {
+    <div class="form-group">
+        @Html.Label("Kategori adi")
+        @Html.TextBoxFor(c => c.Name)
+        @Html.ValidationMessageFor(c => c.Name)
+        <br />
+        @Html.Label("Aciklama")
+        @Html.TextBoxFor(c => c.Description)
+        @Html.ValidationMessageFor(c => c.Description)
+    <br />
+    <button class="btn btn-primary">Ekle</button>
+    </div>
+    }
+    @*<form class="form-control" method="post">
+            <input type="text" class="form-control" placeholder="Kategori Adi" name="Name"/>
+            <br />
+            <button class="btn btn-primary">Ekle</button>
+        </form>*@
+</body>
+</html>
